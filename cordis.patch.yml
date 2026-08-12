@@ -1,0 +1,8 @@
+# dsh-ernie-image bundle patch. The row itself is applied through the host
+# profile's own patch layer (cordis.patch.yml insert) so it goes live without
+# a process restart; this file carries the same insert for bundle-style
+# composition. The browser half is discovered through the package dsh.client
+# manifest.
+- insert:
+    - id: ernie-image
+      name: dsh-ernie-image

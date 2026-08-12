@@ -1,0 +1,378 @@
+.toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9980;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 77, 255, 0.6);
+  background: #7c4dff;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(124, 77, 255, 0.35);
+}
+
+.toggle:hover {
+  filter: brightness(1.08);
+}
+
+.panel {
+  position: fixed;
+  right: 16px;
+  bottom: 64px;
+  z-index: 9980;
+  width: 380px;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  background: rgba(24, 26, 31, 0.97);
+  color: #e6e6e6;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  font-size: 13px;
+}
+
+@media (prefers-color-scheme: light) {
+  .panel {
+    background: rgba(250, 250, 252, 0.98);
+    color: #1c1e22;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  }
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.close {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.promptLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.prompt {
+  resize: vertical;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  background: transparent;
+  cursor: pointer;
+}
+
+.chipActive {
+  border-color: #7c4dff;
+  box-shadow: 0 0 0 2px rgba(124, 77, 255, 0.35);
+}
+
+.chipFrame {
+  display: block;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  color: #8a8f98;
+}
+
+.chipActive .chipFrame {
+  color: #7c4dff;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.inlineField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.inlineField input,
+.inlineField select {
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  width: 84px;
+}
+
+.inlineField select option {
+  background: #1b1d21;
+  color: #e6e6e6;
+}
+
+.seed {
+  width: 110px;
+}
+
+.checkRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  padding-bottom: 6px;
+}
+
+.generate {
+  padding: 9px 0;
+  border-radius: 8px;
+  border: 1px solid rgba(124, 77, 255, 0.6);
+  background: #7c4dff;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.generate:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.error {
+  margin: 0;
+  font-size: 12px;
+  color: #ff8f8f;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.notice {
+  margin: 0;
+  font-size: 12px;
+  color: #8fdcff;
+  word-break: break-word;
+}
+
+.skeleton {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+}
+
+.skeletonArt :global(svg) {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(124, 77, 255, 0.16) 50%, transparent 70%);
+  animation: shimmerSweep 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.skeletonText {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.runSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(128, 128, 128, 0.4);
+}
+
+.runMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.runPrompt {
+  font-size: 12px;
+  opacity: 0.9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.runSeed {
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.thumb {
+  padding: 0;
+  border: 1px solid rgba(128, 128, 128, 0.45);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: transparent;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.runActions {
+  display: flex;
+  gap: 8px;
+}
+
+.runActions button,
+.lightboxActions button {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(124, 77, 255, 0.55);
+  background: transparent;
+  color: #7c4dff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.runActions button:disabled,
+.lightboxActions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lightboxActions button.ghost {
+  border-color: rgba(128, 128, 128, 0.5);
+  color: inherit;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.72);
+  padding: 24px;
+}
+
+.lightboxBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: min(860px, 92vw);
+  max-height: 92vh;
+}
+
+.lightboxBody img {
+  max-width: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #111;
+}
+
+.lightboxMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #e6e6e6;
+  font-size: 12px;
+}
+
+.revised {
+  opacity: 0.7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.lightboxActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lightboxActions button {
+  color: #b99bff;
+}
