@@ -1,5 +1,7 @@
 # dsh-ernie-image
 
+**Author / Maintainer:** [@Zacklinkk](https://github.com/Zacklinkk)
+
 DSH 百度 ERNIE-Image-Turbo 文生图插件：宿主端注册图像生成工具（图片落盘 + 注册为会话附件，agent 可继续读图），浏览器端提供插件配置卡（密钥用户自填、测试连接、默认参数）与「✨ 文生图」生成画廊面板（prompt → 变体 → 预览/下载/同 seed 复现/换 seed 出变体 → 插入会话）。
 
 ## 定位
